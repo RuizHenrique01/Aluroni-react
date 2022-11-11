@@ -4,9 +4,11 @@ import { useState } from 'react';
 import classnames from 'classnames';
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md';
 
+export type OptionsSorter = '' | 'porcao' | 'qtd_pessoas' | 'preco';
+
 interface Props {
     sorter: string;
-    setSorter: React.Dispatch<React.SetStateAction<string>>
+    setSorter: React.Dispatch<React.SetStateAction<OptionsSorter>>
 }
 
 export default function Sorter({ sorter, setSorter } : Props) {
@@ -25,7 +27,7 @@ export default function Sorter({ sorter, setSorter } : Props) {
                 [styles["ordenador__options--ativo"]]: open
                 })}>
                 {opcoes.map((opcao) => (
-                    <div className={styles.ordenador__option} key={opcao.value} onClick={() => setSorter(opcao.value)}>
+                    <div className={styles.ordenador__option} key={opcao.value} onClick={() => setSorter(opcao.value as OptionsSorter)}>
                         {opcao.nome}
                     </div>
                 ))}
