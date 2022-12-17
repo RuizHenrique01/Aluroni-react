@@ -11,23 +11,23 @@ interface Props {
 
 export function Filters({filter, setFilter}: Props) {
 
-    function selecionaFiltro(opcao: IOpcao){
-        if(filter === opcao.id) return setFilter(null);
-        return setFilter(opcao.id);
-    }
+  function selecionaFiltro(opcao: IOpcao){
+    if(filter === opcao.id) return setFilter(null);
+    return setFilter(opcao.id);
+  }
 
-    return (
+  return (
     <div className={styles.filtros}>
-        { filtros.map(op => (
-            <button className={
-                classNames({
-                    [styles.filtros__filtro]: true,
-                    [styles['filtros__filtro--ativo']]: filter === op.id
-                })
-                } key={op.id} onClick={() => selecionaFiltro(op)}>
-                {op.label}
-            </button>
-        ))
-        }
+      { filtros.map(op => (
+        <button className={
+          classNames({
+            [styles.filtros__filtro]: true,
+            [styles['filtros__filtro--ativo']]: filter === op.id
+          })
+        } key={op.id} onClick={() => selecionaFiltro(op)}>
+          {op.label}
+        </button>
+      ))
+      }
     </div>);
 }

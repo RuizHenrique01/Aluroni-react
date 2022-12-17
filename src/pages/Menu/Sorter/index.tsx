@@ -12,26 +12,26 @@ interface Props {
 }
 
 export default function Sorter({ sorter, setSorter } : Props) {
-    const [open, setOpen] = useState(false);
-    const nameOption = sorter && opcoes.find(op => op.value === sorter)?.nome;
+  const [open, setOpen] = useState(false);
+  const nameOption = sorter && opcoes.find(op => op.value === sorter)?.nome;
 
-    return (
-        <button className={classnames({
-            [styles.ordenador]: true,
-            [styles["ordenador--ativo"]]: sorter !== ""
-        })} onClick={() => setOpen(!open)} onBlur={() => setOpen(false)}>
-            <span>{ nameOption || "Orderna Por"}</span>
-            {open ? <MdKeyboardArrowUp size={20}/> : <MdKeyboardArrowDown size={20}/>}
-            <div className={classnames({ 
-                [styles.ordenador__options]: true,
-                [styles["ordenador__options--ativo"]]: open
-                })}>
-                {opcoes.map((opcao) => (
-                    <div className={styles.ordenador__option} key={opcao.value} onClick={() => setSorter(opcao.value as OptionsSorter)}>
-                        {opcao.nome}
-                    </div>
-                ))}
-            </div>
-        </button>
-    );
+  return (
+    <button className={classnames({
+      [styles.ordenador]: true,
+      [styles['ordenador--ativo']]: sorter !== ''
+    })} onClick={() => setOpen(!open)} onBlur={() => setOpen(false)}>
+      <span>{ nameOption || 'Orderna Por'}</span>
+      {open ? <MdKeyboardArrowUp size={20}/> : <MdKeyboardArrowDown size={20}/>}
+      <div className={classnames({ 
+        [styles.ordenador__options]: true,
+        [styles['ordenador__options--ativo']]: open
+      })}>
+        {opcoes.map((opcao) => (
+          <div className={styles.ordenador__option} key={opcao.value} onClick={() => setSorter(opcao.value as OptionsSorter)}>
+            {opcao.nome}
+          </div>
+        ))}
+      </div>
+    </button>
+  );
 }
