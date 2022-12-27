@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 export function AppRouter() {
   return (
-    <main>
+    <main className='container'>
       <Router>
         <MenuHeader />
         <Routes>
