@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Filters } from './Filters';
 import Sorter, { OptionsSorter } from './Sorter';
 import Items from './Items';
+import stylesTheme from 'styles/Theme.module.scss';
 
 export default function Menu() {
   const [search, setSearch] = useState('');
@@ -12,7 +13,7 @@ export default function Menu() {
 
   return (
     <section className={styles.cardapio}>
-      <h3 className={styles.cardapio__titulo}>Cardápio</h3>
+      <h3 className={stylesTheme.titulo}>Cardápio</h3>
       <Search search={search} setSearch={setSearch} />
       <div className={styles.cardapio__filtros}>
         <Filters filter={filter} setFilter={setFilter} />
