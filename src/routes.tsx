@@ -18,8 +18,8 @@ export function AppRouter() {
             <Route index element={<Init />} />
             <Route path='menu' element={<Menu />} />
             <Route path='about' element={<About />} />
-            <Route path='/dish/:id' element={<Dish/>} />
           </Route>
+          <Route path='/dish/:id' element={<Dish/>} />
           <Route path='*' element={<NotFound />}/>
         </Routes>
         <Footer /> 

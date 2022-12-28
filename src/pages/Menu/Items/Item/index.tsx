@@ -1,11 +1,13 @@
 import TagsDish from 'components/TagsDish';
+import { useNavigate } from 'react-router-dom';
 import { IDish } from 'types/Dish';
 import styles from './Item.module.scss';
 
 export default function Item(props: IDish){
-  const { title, description, photo } = props;
+  const { id, title, description, photo } = props;
+  const navigate = useNavigate();
   return (
-    <div className={styles.item}>
+    <div className={styles.item} onClick={() => navigate(`/dish/${id}`)}>
       <div className={styles.item__image}>
         <img src={photo} alt="imagem" />
       </div>
@@ -14,8 +16,8 @@ export default function Item(props: IDish){
           <h2> {title} </h2>
           <p> {description} </p>
         </div>
+        <TagsDish {...props}/>
       </div>
-      <TagsDish {...props}/>
     </div>
   );
 }
